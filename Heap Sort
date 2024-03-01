@@ -7,7 +7,7 @@ with open('dulieu.txt','r') as file:
         
         arr.append(line)
 file.close()
-#quick sort 
+
 # Python program for implementation of heap Sort
 
 # To heapify subtree rooted at index i.
