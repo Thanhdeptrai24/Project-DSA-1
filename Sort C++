@@ -1,0 +1,43 @@
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <sstream>
+#include <ctime>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    vector<vector<int> > arr;
+
+    ifstream file("dulieu.txt");
+    if (file.is_open()) {
+        for (int i = 0; i < 8; i++) {
+            string line;
+            getline(file, line);
+
+            vector<int> numbers;
+            stringstream ss(line);
+            int num;
+            while (ss >> num) {
+                numbers.push_back(num);
+            }
+
+            arr.push_back(numbers);
+        }
+
+        file.close();
+    }
+    
+
+    for (int i = 0; i < 8; i++) {
+        clock_t start_time = clock();  // Th?i di?m b?t d?u
+        sort(arr[i].begin(), arr[i].end());  // S?p x?p m?ng
+
+        clock_t end_time = clock();  // Th?i di?m k?t thúc
+        double execution_time = double(end_time - start_time) / CLOCKS_PER_SEC;  // Th?i gian th?c thi
+        cout << "Thoi gian thuc thi cua day " << i + 1 << " la: " << execution_time << endl;
+    }
+
+    return 0;
+}
