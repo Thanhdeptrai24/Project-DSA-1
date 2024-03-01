@@ -1,0 +1,52 @@
+import time
+arr = []
+with open('dulieu.txt','r') as file:
+    for i in range(8):
+        linestr=file.readline()
+        line=list(map(int,linestr.split()))
+        
+        arr.append(line)
+file.close()
+#quick sort 
+
+
+def partition(array, low, high):
+    pivot_index = (low + high) // 2
+    pivot = array[pivot_index]
+    array[pivot_index], array[high] = array[high], array[pivot_index]
+    i = low - 1
+    for j in range(low, high):
+        if array[j] <= pivot:
+            i = i + 1
+            array[i], array[j] = array[j], array[i]
+
+    array[i + 1], array[high] = array[high], array[i + 1]
+
+    return i + 1
+ 
+ 
+
+def quicksort(array, low, high):
+    if low < high:
+        pi = partition(array, low, high)
+ 
+        quicksort(array, low, pi - 1)
+ 
+        quicksort(array, pi + 1, high)
+# execute time of quick sort
+
+
+
+
+
+for i in range(0,8):
+    low=0
+    high=len(arr[i])-1
+    start_time=time.time()
+    quicksort(arr[i],low,high)
+    
+    end_time=time.time()
+    print("Thoi gian thuc thi cua day ",i+1,"la:",end_time-start_time)
+        
+
+    
