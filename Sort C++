@@ -31,11 +31,11 @@ int main() {
     
 
     for (int i = 0; i < 8; i++) {
-        clock_t start_time = clock();  // Th?i di?m b?t d?u
-        sort(arr[i].begin(), arr[i].end());  // S?p x?p m?ng
+        clock_t start_time = clock(); 
+        sort(arr[i].begin(), arr[i].end()); 
 
-        clock_t end_time = clock();  // Th?i di?m k?t thúc
-        double execution_time = double(end_time - start_time) / CLOCKS_PER_SEC;  // Th?i gian th?c thi
+        clock_t end_time = clock(); 
+        double execution_time = double(end_time - start_time) / CLOCKS_PER_SEC;  
         cout << "Thoi gian thuc thi cua day " << i + 1 << " la: " << execution_time << endl;
     }
 
