@@ -1,0 +1,25 @@
+import time
+import numpy as np
+arr = []
+with open('dulieu.txt','r') as file:
+    for i in range(8):
+        linestr=file.readline()
+        line=list(map(int,linestr.split()))
+        
+        arr.append(line)
+file.close()
+arr=np.array(arr)
+arr=arr.astype(int)
+# execute time of sort numpy
+
+
+
+
+for i in range(0,8):
+    start_time=time.time()
+    arrnew=np.sort(arr[i],axis=None, kind=None, order=None)
+    end_time=time.time()
+    print("Thoi gian thuc thi cua day ",i+1,"la:",end_time-start_time)
+        
+
+    
