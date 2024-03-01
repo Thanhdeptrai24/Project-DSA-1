@@ -1,0 +1,21 @@
+#Bo_Du_Lieu
+import random
+
+danh_sach_1 = list(range(1, 1000001))
+danh_sach_2 = list(range(1000000, 0, -1))
+danh_sach_ngau_nhien = []
+for _ in range(8):
+    danh_sach = [random.randint(1, 1000001) for _ in range(1000000)]
+    danh_sach_ngau_nhien.append(danh_sach)
+
+
+bo_du_lieu = [danh_sach_1, danh_sach_2] + danh_sach_ngau_nhien
+# Ghi bo_du_lieu vao file
+
+
+
+with open("dulieu.txt", "w") as file:
+    for danh_sach in bo_du_lieu:
+        day = ' '.join(str(element) for element in danh_sach)
+        file.write(day + '\n')
+file.close()
